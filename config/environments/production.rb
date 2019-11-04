@@ -93,7 +93,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SENDGRID_LOGIN'],
+    :user_name => 'apikey',
     :password => ENV['SENDGRID_PWD'],
     :domain => 'monsite.fr',
     :address => 'smtp.sendgrid.net',
