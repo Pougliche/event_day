@@ -9,9 +9,9 @@ class UserMailer < ApplicationMailer
 
     end
 
-    def attendance_email(user)
-        @user = user
-        @url = 'www.lite-event.com/sessions/new'
-        mail(to: @user.email, subject: 'dont forget this event !', body: 'something')
-    end
+    #def attendance_email(user)
+        #@user = user
+        #@url = 'www.lite-event.com/sessions/new'
+        #mail(to: @user.email, subject: 'dont forget this event !', body: 'something')
+    #end
 end
