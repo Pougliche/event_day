@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     def welcome_email(user)
         @user = user
         @url = 'www.lite-event.com/sessions/new'
-        mail(to: @user.email, subject: 'welcome home !', body: 'something')
+        mail(to: @user.email, subject: 'welcome home !')
 
     end
 
