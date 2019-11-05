@@ -5,11 +5,48 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+                            
   <body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/gossips/">Lite Event V.8.7</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/gossips/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gossips/new">Create a New Gossip</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/new">Create a New Account <span class="sr-only">(current)</span></a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/users">Ghosts List</a>
+        </li>
+        
+    </div>
+  </nav>
+
+<header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Welcome to Lite Event</h1>
+      <p class="lead">Find the right event to catch new STDs !</p>
+    </div>  
+
+  </header>
+
     <%= yield %>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
