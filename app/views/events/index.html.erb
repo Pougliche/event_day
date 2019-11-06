@@ -9,6 +9,7 @@
 <div class="card-columns'">
 
 <% @events.all.each do |event| %>
+</br>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= event.title%> </h5>
@@ -17,7 +18,6 @@
   </div>
 </div>
 </div>
-</br>
 <%  end %>
 
 <%= link_to 'New Event', new_event_path %>
