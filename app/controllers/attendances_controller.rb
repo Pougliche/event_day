@@ -25,7 +25,7 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
 
-    respond_to do |format|
+
       if @attendance.save
          redirect_to @attendance, notice: 'Attendance was successfully created.' 
       else
