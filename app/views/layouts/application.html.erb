@@ -7,6 +7,8 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,26 +27,27 @@
         <li class="nav-item active">
           <a class="nav-link" href="/events/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/events/new">Create a New Event</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/new">Create a New Account <span class="sr-only">(current)</span></a>
-        </li>
-         <li class="nav-item">
+         <li class="nav-item active">
           <a class="nav-link" href="/users">Members List</a>
         </li>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">User Menu<span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                       
-                            <li><a href="/users/new">Create a New Account</a></li>
-                            <li> <%= link_to "Login", new_user_session_path %> </li>
-                            
-                            <li><a href="/users/sign_out" data-method="delete"> Log out</a> <li>
-                        
-                          </ul>
-                        
+        <li class="nav-item active">
+          <a class="nav-link" href="/users/sign_up">Create a New Account <span class="sr-only">(current)</span></a>
+        </li>
+              <% if user_signed_in? %>
+                                    
+                                    <li>    <a class="btn btn-danger" href="/users/sign_out" data-method="delete">LOGOUT</a>  </li>
+                                <% else %>
+                                    <li>    <a class="btn btn-success" href="/users/sign_in">LOGIN</a>  </li>
+                                <%end%>
+
+        
+                     
+
+      
+    </ul>
             </div> 
         
     </div>
@@ -52,7 +55,7 @@
 
 <header class="bg-primary text-white">
     <div class="container text-center">
-      <h1>Welcome to Lite Event</h1>
+      <h1>EventDay</h1>
       <p class="lead">Find the right event to catch new STDs !</p>
     </div>  
 

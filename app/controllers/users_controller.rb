@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user
+  before_action :my_page, only: [:show]
  
   def index
     @users = User.all
@@ -54,6 +55,13 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+      return params.require(:user).permit(:first_name, :last_name, :description)
     end
+
+    def my_page
+      unless current_user == User.find(params[:id])
+        redirect_to events_path, flash: {danger: "Acces restreint !" }
+      end
+    end
+
 end
