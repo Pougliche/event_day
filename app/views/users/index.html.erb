@@ -4,9 +4,8 @@
 <% @users.all.each do |user| %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"><%= user.first_name%> </h5>
+    <h5 class="card-title"><%= user.first_name%><% user.last_name%> </h5>
     <h5 class="card-text">" <%= user.email %> "</h5>
-    <a class="card-link" <%= link_to "SHOW ME THE USER", user_path(user.id)%> </a>
   </div>
 </div>
 </div>
