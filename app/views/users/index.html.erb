@@ -2,6 +2,7 @@
 <div class="card-columns'">
 
 <% @users.all.each do |user| %>
+</br>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= user.first_name%><% user.last_name%> </h5>
@@ -9,7 +10,6 @@
   </div>
 </div>
 </div>
-</br>
 <%  end %>
 
 </center>
