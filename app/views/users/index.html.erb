@@ -1,25 +1,15 @@
-<p id="notice"><%= notice %></p>
+<center>
+<div class="card-columns'">
 
-<h1>Users</h1>
+<% @users.all.each do |user| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= user.first_name%> </h5>
+    <h5 class="card-text">" <%= user.email %> "</h5>
+    <a class="card-link" <%= link_to "SHOW ME THE USER", user_path(user.id)%> </a>
+  </div>
+</div>
+</div>
+<%  end %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+</center>
