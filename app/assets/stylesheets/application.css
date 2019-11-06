@@ -16,6 +16,8 @@
 
  body{
      margin: 0;
+     background-color: #03080c;
+     color: white;
  }
 
  header {
@@ -24,4 +26,10 @@
 
 .navbar {
     font-family: 'Pacifico', cursive, sans-serif !important;
+  }
+
+  .card {
+    background-color: #1e2124;
+     color: white;
+     font-family: 'Arvo', cursive, sans-serif !important;:
   }
