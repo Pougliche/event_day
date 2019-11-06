@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
+<center>  
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @event.title%> </h5>
+    <h5 class="card-text"><%= @event.description %></h5>
+    <h5 class="card-text">Entrance : <%= @event.price %> $</h5>
+    <h5 class="card-text">Location : <%= @event.location %></h5>
+    <h5 class="card-text">Time : <%= @event.start_date %></h5>
+    <h5 class="card-text">Event created by : </br>    <%= @event.creator.first_name %> <%= @event.creator.last_name %> </h5>
+    <h5 class="card-text">Reach him at : </br> <%= @event.creator.email %></h5>
+
+    </div>
+    </div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+</center>

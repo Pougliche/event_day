@@ -7,8 +7,7 @@ class AttendancesController < ApplicationController
     @attendances = Attendance.all
   end
 
-  # GET /attendances/1
-  # GET /attendances/1.json
+  
   def show
   end
 
@@ -28,27 +27,18 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
+         redirect_to @attendance, notice: 'Attendance was successfully created.' 
       else
-        format.html { render :new }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
+         render :new 
       end
-    end
   end
 
-  # PATCH/PUT /attendances/1
-  # PATCH/PUT /attendances/1.json
   def update
-    respond_to do |format|
       if @attendance.update(attendance_params)
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance }
+        redirect_to @attendance, notice: 'Attendance was successfully updated.' 
       else
-        format.html { render :edit }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
+       render :edit 
       end
-    end
   end
 
   # DELETE /attendances/1
