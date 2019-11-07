@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @events_creator = Event.where(admin: @user)
   end
 
   def new

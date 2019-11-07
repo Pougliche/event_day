@@ -1,5 +1,6 @@
 <center>  
-<div class="card" style="width: 18rem;">
+</br>
+<div class="card mb-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @event.title%> </h5>
     <h5 class="card-text"><%= @event.description %></h5>
@@ -11,6 +12,29 @@
 
     </div>
     </div>
+
+    <div class="jumbotron">
+		<p class="lead"> Description de l'evenement : <%= @event.description %></p>
+		<hr class="my-4">
+			<p>Cet evenement a ete cree par <%= "#{@event.creator.first_name},(#{@event.creator.email}) " %>, et se deroulera le <%= "#{@event.start_date}  "  %> </p>
+		</hr>
+		<hr class="my-4">
+			<p> Il y a <%= @participants.count %> participants a cet evenement. L'evenement se deroulera a <%= @event.location %>. </p>
+
+			<% if current_user.id == @event.creator.id %>
+				<a class="btn btn-secondary btn-lg" href="<%= edit_event_path(@event.id) %>" role="button">Modifier l'evenement</a>
+	   			<a class="btn btn-danger btn-lg" href="<%= event_path(@event.id) %>" role="button" data-confirm="Attention la suppression est irreversible" data-method="DELETE">Supprimer l'event</a>
+			<%else%>
+              	<% if !@participants.include?(current_user) %>
+					<%= form_for :attendance, url: event_attendances_path(@event) do |f| %>
+			        	<button class="btn btn-success btn-lg">  Participer pour <%="#{@event.price}$" %> </button>
+			        <%end%> 
+				<%else%>
+					<a class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc" href="<%= event_attendance_path(@event.id) %>" role="button" data-method="DELETE"> Ne plus participer</a>
+				<%end%>
+			<%end%>
+		</hr>
+	</div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
