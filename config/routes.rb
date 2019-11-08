@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'users#new'
-  resources :attendances
-  resources :events
-  resources :users
+  resources :events do
+    resources :attendances, only: [:create, :destroy]
+  end
+  devise_scope :user do
+    root :to => 'devise/sessions#new'
+  end
+
+
+  resources :users, except:[:new, :create]
 end

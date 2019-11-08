@@ -16,7 +16,7 @@
     <div class="jumbotron">
 		<p class="lead"> Description de l'evenement : <%= @event.description %></p>
 		<hr class="my-4">
-			<p>Cet evenement a ete cree par <%= "#{@event.creator.first_name},(#{@event.creator.email}) " %>, et se deroulera le <%= "#{@event.start_date}  "  %> </p>
+			<p>Cet evenement a ete cree par <%= "#{@event.creator.first_name},(#{@event.creator.email}) " %>, et se deroulera du <%= "#{@event.start_date} au  "  %> </p>
 		</hr>
 		<hr class="my-4">
 			<p> Il y a <%= @participants.count %> participants a cet evenement. L'evenement se deroulera a <%= @event.location %>. </p>

@@ -28,8 +28,10 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
-    @attendance.destroy
-      redirect_to events_path, notice: 'Attendance was successfully destroyed.' 
+    find_attendance
+    if @attendance.destroy
+    end
+      redirect_to events_path, flash: {danger: 'Vous etes desinscrit de cet evenement !'}
   end
 
   private
@@ -45,7 +47,7 @@ class AttendancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_params
-      params.fetch(:attendance, {})
+      params.require(:attendance).permit(:id, :user, :event)
     end
 
     def already_participate?
